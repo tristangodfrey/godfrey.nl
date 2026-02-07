@@ -20,8 +20,8 @@
         ← Back to posts
       </a>
       {{- partials.IncludeCached "social/share.html" . . -}}
-      <h1 class="athelas mt3 mb1 dark-gray">
-        {{- .Title -}}
+      <h1 class="f2 fw1 mt3 mb1 dark-gray lh-title">
+        {{ or .Title (.File.ContentBaseName | humanize) }}
       </h1>
       
       {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
