@@ -1,16 +1,14 @@
 <div class="mb4">
   <h2 class="f3 fw1 mt0 lh-title">
     <a href="{{ .RelPermalink }}" class="color-inherit dim link">
-      {{ .Title }}
+      {{ or .Title .File.ContentBaseName | humanize }}
     </a>
   </h2>
   <div class="f6 gray mv1">
     {{ .Date.Format "January 2, 2006" }}
   </div>
   <div class="f5 lh-copy nested-links">
-    {{ $content := .RawContent }}
-    {{ $content = replaceRE "^---[\\s\\S]*?---" "" $content }}
-    {{ $paragraphs := split (trim $content "\n") "\n\n" }}
-    {{ index $paragraphs 0 | markdownify }}
+    {{ .Summary }}
   </div>
+  <a href="{{ .RelPermalink }}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">Read more</a>
 </div>

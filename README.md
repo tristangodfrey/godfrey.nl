@@ -17,16 +17,7 @@ To run the site locally:
    hugo server -D
    ```
 
-## Creating Content
-
-To create a new blog post:
-```bash
-hugo new content posts/my-new-post.md
-```
-
 ## Features
-- Renders posts sequentially showing the first paragraph for each post + a link to the full post.
-- Clean and responsive design using the Ananke theme.
 - **Obsidian Integration**:
     - Supports Obsidian-style Markdown features:
         - [x] Task lists
@@ -34,6 +25,13 @@ hugo new content posts/my-new-post.md
         - [x] Footnotes
         - [x] Strikethrough
     - For Wikilinks, use the standard Markdown syntax `[Text](Destination)` which Hugo handles natively, or see `layouts/_default/_markup/render-link.html` for custom link handling.
+
+## List view
+
+The list view shows a short version of each post,
+It displays only: title, date, and the first paragraph of the post. (text until the first empty line)
+The title and date appear above the first paragraph.
+At the bottom there is a link to the full post.
 
 ## Obsidian Integration
 
