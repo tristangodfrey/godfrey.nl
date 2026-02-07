@@ -1,0 +1,29 @@
+baseURL = 'https://tristan.github.io/godfrey.nl/'
+languageCode = 'en-us'
+title = 'godfrey.nl'
+theme = 'ananke'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      unsafe = true
+[markup.goldmark.parser]
+  [markup.goldmark.parser.attribute]
+    block = true
+    title = true
+
+[params]
+  description = "Personal blog and notes"
+  text_color = ""
+  author = "Tristan"
+  favicon = ""
+  site_logo = ""
+  read_more_copy = "Read more"

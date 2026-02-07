@@ -1,0 +1,15 @@
+# Hugo directories
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+

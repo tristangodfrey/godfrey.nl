@@ -1,0 +1,27 @@
+{{- $dest := .Destination -}}
+{{- $text := .Text -}}
+{{- $isWikilink := false -}}
+
+{{- if and (strings.HasPrefix $dest "[[") (strings.HasSuffix $dest "]]") -}}
+  {{- $isWikilink = true -}}
+  {{- $dest = strings.TrimPrefix "[[" $dest -}}
+  {{- $dest = strings.TrimSuffix "]]" $dest -}}
+{{- end -}}
+
+{{- if $isWikilink -}}
+  {{- $link := $dest -}}
+  {{- $display := $text -}}
+  {{- if strings.Contains $dest "|" -}}
+    {{- $parts := split $dest "|" -}}
+    {{- $link = index $parts 0 -}}
+    {{- $display = index $parts 1 -}}
+  {{- end -}}
+  {{- $page := .Page.GetPage $link -}}
+  {{- if $page -}}
+    <a href="{{ $page.RelPermalink }}">{{ $display | default $page.Title }}</a>
+  {{- else -}}
+    <span class="broken-wikilink" title="Page not found: {{ $link }}">{{ $display | default $link }}</span>
+  {{- end -}}
+{{- else -}}
+  <a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}
