@@ -57,25 +57,6 @@
     <div class="container">
         <h1>godfrey.nl</h1>
         <div class="social-links">
-            {{- $config := site.Params.ananke.social -}}
-            {{- range $config.follow.networks -}}
-              {{- if eq . "x-twitter" -}}
-                {{- $setup := index $config.networks . -}}
-                {{- $profile := index $config . -}}
-                {{- $link := printf $setup.profile $profile.username -}}
-                <a href="{{ $link }}" target="_blank" rel="noopener" title="follow on X">
-                    <span class="icon">
-                        {{- $icon := resources.Get (printf "ananke/socials/%s.svg" $setup.icon) -}}
-                        {{- with $icon -}}
-                            {{ .Content | safe.HTML }}
-                        {{- end -}}
-                    </span>
-                    <span class="username">@{{ $profile.username }}</span>
-                </a>
-              {{- else -}}
-                {{ partial "social/follow.html" $ }}
-              {{- end -}}
-            {{- end -}}
             <div style="margin-top: 2rem;">
                 <a href="https://twitter.com/_tristangodfrey?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_tristangodfrey</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
