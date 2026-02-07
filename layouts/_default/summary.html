@@ -1,10 +1,10 @@
 <div class="mb4">
-  <h2 class="f3 fw1 mt0 lh-title">
+  <h2 class="f2 fw1 mt0 lh-title">
     <a href="{{ .RelPermalink }}" class="dark-gray dim link">
       {{ or .Title .File.ContentBaseName | humanize }}
     </a>
   </h2>
-  <div class="f6 mid-gray mv1">
+  <div class="f6 mid-gray mt1 mb3">
     {{ .Date.Format "January 2, 2006" }}
   </div>
   <div class="f5 lh-copy nested-links mid-gray">
