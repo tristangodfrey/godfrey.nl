@@ -20,13 +20,13 @@
         ← Back to posts
       </a>
       {{- partials.IncludeCached "social/share.html" . . -}}
-      <h1 class="f2 fw1 mt3 mb1 dark-gray lh-title">
+      <h1 class="f2 fw9 athelas mt3 mb0 dark-gray lh-title">
         {{ or .Title (.File.ContentBaseName | humanize) }}
       </h1>
       
       {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
       {{ if not .Date.IsZero }}
-      <time class="f6 mt1 mb4 dib tracked" {{ fmt.Printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safe.HTMLAttr }}>
+      <time class="f6 mt0 mb4 dib tracked" {{ fmt.Printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safe.HTMLAttr }}>
         {{- .Date | time.Format (compare.Default "January 2, 2006" .Site.Params.date_format) -}}
       </time>
       {{end}}
