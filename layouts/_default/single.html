@@ -17,13 +17,9 @@
 
   <article class="{{ $post_class }} flex-l {{ if $needs_aside }}mw8{{ else }}mw7{{ end }} center ph3 flex-wrap justify-between">
     <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          {{/*
-          CurrentSection allows us to use the section title instead of inferring from the folder.
-          https://gohugo.io/variables/page/#section-variables-and-methods
-          */}}
-        {{ .CurrentSection.Title }}
-      </aside>
+      <a href="{{ .Site.Home.RelPermalink }}" class="link db mb3 silver hover-black">
+        ← Back to posts
+      </a>
       {{- partials.IncludeCached "social/share.html" . . -}}
       <h1 class="f1 athelas mt3 mb1">
         {{- .Title -}}
