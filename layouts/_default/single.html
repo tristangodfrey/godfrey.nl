@@ -1,9 +1,5 @@
 {{ define "header" }}
-  <header class="bg-white">
-    <div class="pv3">
-      {{ partials.Include "site-navigation.html" . }}
-    </div>
-  </header>
+  {{ partial "site-header.html" . }}
 {{ end }}
 
 {{ define "main" }}
@@ -24,7 +20,7 @@
         ← Back to posts
       </a>
       {{- partials.IncludeCached "social/share.html" . . -}}
-      <h1 class="f-headline-l f1 athelas mt3 mb1 dark-gray">
+      <h1 class="athelas mt3 mb1 dark-gray">
         {{- .Title -}}
       </h1>
       
