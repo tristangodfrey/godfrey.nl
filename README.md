@@ -35,6 +35,16 @@ hugo new content posts/my-new-post.md
         - [x] Strikethrough
     - For Wikilinks, use the standard Markdown syntax `[Text](Destination)` which Hugo handles natively, or see `layouts/_default/_markup/render-link.html` for custom link handling.
 
+## Obsidian Integration
+
+It is handled as follows:
+
+The source for posts is in content/Blog/Posts.
+When building, filenames + MD properties are fetched from each file and put in a JSON object.
+This list of objects becomes the metadata for each post.
+Filename becomes the "title" property.
+The first paragraph becomes the "short" property.
+    
 ## Deployment
 
 The site is configured for automatic deployment to **GitHub Pages** via GitHub Actions.

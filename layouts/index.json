@@ -1,0 +1,10 @@
+{{- $posts := slice -}}
+{{- range where .Site.RegularPages "Section" "posts" -}}
+  {{- $title := .Title -}}
+  {{- if not $title -}}
+    {{- $title = .File.ContentBaseName -}}
+  {{- end -}}
+  {{- $post := dict "title" $title "short" (.Summary | plainify | chomp) "date" .Date "url" .Permalink -}}
+  {{- $posts = $posts | append $post -}}
+{{- end -}}
+{{- $posts | jsonify -}}

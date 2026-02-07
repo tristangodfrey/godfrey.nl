@@ -20,6 +20,32 @@ theme = 'ananke'
     block = true
     title = true
 
+[module]
+  [[module.mounts]]
+    source = 'content/Blog/Posts'
+    target = 'content/posts'
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
+  page = ["HTML"]
+
 [params]
   maintenance_mode = true
   description = "Personal blog and notes"
@@ -34,3 +60,8 @@ theme = 'ananke'
 
   [params.ananke.social.follow]
     networks = ["x-twitter"]
+
+summaryLength = 20
+
+[frontmatter]
+  title = ["title", ":filename"]

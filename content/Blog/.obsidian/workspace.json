@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "afc8971a7c3f429a",
+        "id": "48d515ed3ca4d965",
         "type": "tabs",
         "children": [
           {
-            "id": "51fc848ac8742766",
+            "id": "5edebb9522d0ff07",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "content/Blog/Welcome.md",
-                "bFile": "content/Blog/Welcome.md",
-                "aRef": ""
+                "file": "Posts/Hello World.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: Welcome  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Hello World"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "[\"tags\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Posts/Hello World.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Hello World"
             }
           },
           {
@@ -155,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "Posts/Hello World.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of Hello World"
             }
           },
           {
@@ -175,7 +176,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -190,11 +191,17 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "51fc848ac8742766",
+  "active": "5edebb9522d0ff07",
   "lastOpenFiles": [
-    "Welcome.md"
+    "Welcome.md",
+    "Posts/Hello World.md",
+    "Posts",
+    "Untitled.md",
+    "Templates/{{post-title}}.md",
+    "Templates"
   ]
 }
