@@ -47,7 +47,7 @@ theme = 'ananke'
   page = ["HTML"]
 
 [params]
-  maintenance_mode = true
+  maintenance_mode = false
   description = "Personal blog and notes"
   text_color = ""
   author = "Tristan"
