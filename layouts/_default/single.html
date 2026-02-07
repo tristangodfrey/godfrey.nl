@@ -1,6 +1,9 @@
 {{ define "header" }}
-   {{/* We can override any block in the baseof file be defining it in the template */}}
-  {{ partials.Include "page-header.html" . }}
+  <header>
+    <div class="pv3">
+      {{ partials.Include "site-navigation.html" . }}
+    </div>
+  </header>
 {{ end }}
 
 {{ define "main" }}
@@ -16,12 +19,12 @@
   {{- end -}}
 
   <article class="{{ $post_class }} flex-l {{ if $needs_aside }}mw8{{ else }}mw7{{ end }} center ph3 flex-wrap justify-between">
-    <header class="mt4 w-100">
-      <a href="{{ .Site.Home.RelPermalink }}" class="link db mb3 silver hover-black">
+    <header class="mt2 w-100 mid-gray">
+      <a href="{{ .Site.Home.RelPermalink }}" class="link db mb3 gray hover-black">
         ← Back to posts
       </a>
       {{- partials.IncludeCached "social/share.html" . . -}}
-      <h1 class="f1 athelas mt3 mb1">
+      <h1 class="f1 athelas mt3 mb1 dark-gray">
         {{- .Title -}}
       </h1>
       
@@ -71,4 +74,14 @@
     {{- end -}}
 
   </article>
+{{ end }}
+
+{{ define "footer" }}
+  <footer class="pv4 ph3 ph5-l mid-gray">
+    <div class="tc">
+      <a class="f6 dib ph2 link mid-gray hover-black" href="{{ .Site.Home.Permalink }}">
+        &copy; {{ .Site.Title }} {{ now.Format "2006" }}
+      </a>
+    </div>
+  </footer>
 {{ end }}

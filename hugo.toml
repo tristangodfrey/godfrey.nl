@@ -49,11 +49,12 @@ theme = 'ananke'
 [params]
   maintenance_mode = false
   description = "Personal blog and notes"
-  text_color = ""
+  text_color = "mid-gray"
   author = "Tristan"
   favicon = ""
   site_logo = ""
   read_more_copy = "Read more"
+  body_classes = "avenir bg-near-white"
 
   [params.ananke.social.x-twitter]
     username = "_tristangodfrey"

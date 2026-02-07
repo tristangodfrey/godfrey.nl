@@ -1,8 +1,8 @@
 {{ define "header" }}
   <header>
-    <div class="vh-25 flex flex-column justify-center items-center {{ .Site.Params.background_color_class | compare.Default "bg-black" }}">
+    <div class="vh-25 flex flex-column justify-center items-center">
       <div class="tc">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title avenir">
+        <h1 class="f2 f-subheadline-l fw2 dark-gray mb0 lh-title avenir">
           {{ .Site.Title }}
         </h1>
         <div class="mt3">
@@ -14,7 +14,7 @@
 {{ end }}
 
 {{ define "main" }}
-  <div class="pa3 pa4-ns w-100 w-70-ns center">
+  <div class="pa3 pa4-ns w-100 w-70-ns center mid-gray">
     {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
     {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
     <section class="w-100 mw8">
@@ -28,5 +28,11 @@
 {{ end }}
 
 {{ define "footer" }}
-  {{/* Empty footer to match landing page style */}}
+  <footer class="pv4 ph3 ph5-l mid-gray">
+    <div class="tc">
+      <a class="f6 dib ph2 link mid-gray hover-black" href="{{ .Site.Home.Permalink }}">
+        &copy; {{ .Site.Title }} {{ now.Format "2006" }}
+      </a>
+    </div>
+  </footer>
 {{ end }}
