@@ -40,5 +40,5 @@ hugo new content posts/my-new-post.md
 The site is configured for automatic deployment to **GitHub Pages** via GitHub Actions.
 
 - **Pipeline**: Whenever you push to the `main` branch, the `.github/workflows/hugo.yaml` workflow will build the site using Hugo and deploy it.
-- **Base URL**: The site is configured to be hosted at `https://tristan.github.io/godfrey.nl/`.
+- **Base URL**: The site is configured to be hosted at `https://godfrey.nl/`.
 - **Note**: Ensure that your GitHub repository settings have "GitHub Actions" selected as the source for Pages (Settings > Pages > Build and deployment > Source).

@@ -1,4 +1,4 @@
-baseURL = 'https://tristan.github.io/godfrey.nl/'
+baseURL = 'https://godfrey.nl/'
 languageCode = 'en-us'
 title = 'godfrey.nl'
 theme = 'ananke'
