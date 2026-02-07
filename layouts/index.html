@@ -1,0 +1,35 @@
+{{ define "header" }}
+  <header>
+    <div class="vh-100 flex flex-column justify-center items-center {{ .Site.Params.background_color_class | compare.Default "bg-black" }}">
+      <div class="tc">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title avenir">
+          {{ .Site.Title }}
+        </h1>
+        <div class="mt4">
+          <a href="https://twitter.com/_tristangodfrey?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_tristangodfrey</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+  </header>
+{{ end }}
+
+{{ define "main" }}
+  {{/* If you want to keep the blog posts below the landing area, uncomment the following lines */}}
+  {{/*
+  <div class="pa3 pa4-ns w-100 w-70-ns center">
+    {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
+    {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
+    <section class="w-100 mw8">
+      {{ range $section }}
+        <div class="w-100 mb4 relative">
+          {{ .Render "summary-with-image" }}
+        </div>
+      {{ end }}
+    </section>
+  </div>
+  */}}
+{{ end }}
+
+{{ define "footer" }}
+  {{/* Empty footer to match landing page style */}}
+{{ end }}
