@@ -29,8 +29,8 @@ theme = 'ananke'
   site_logo = ""
   read_more_copy = "Read more"
 
-  [params.ananke.social.twitter]
+  [params.ananke.social.x-twitter]
     username = "_tristangodfrey"
 
   [params.ananke.social.follow]
-    networks = ["twitter"]
+    networks = ["x-twitter"]
