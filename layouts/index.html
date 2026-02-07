@@ -14,20 +14,17 @@
 {{ end }}
 
 {{ define "main" }}
-  {{/* If you want to keep the blog posts below the landing area, uncomment the following lines */}}
-  {{/*
   <div class="pa3 pa4-ns w-100 w-70-ns center">
-    {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
+    {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
     {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
     <section class="w-100 mw8">
       {{ range $section }}
         <div class="w-100 mb4 relative">
-          {{ .Render "summary-with-image" }}
+          {{ .Render "summary" }}
         </div>
       {{ end }}
     </section>
   </div>
-  */}}
 {{ end }}
 
 {{ define "footer" }}
