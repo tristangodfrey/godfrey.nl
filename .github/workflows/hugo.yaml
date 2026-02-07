@@ -33,13 +33,25 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.155.2
+      DART_SASS_VERSION: 1.83.4
     steps:
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Cache Dart Sass
+        id: cache-dart-sass
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/dart-sass
+          key: ${{ runner.os }}-dart-sass-${{ env.DART_SASS_VERSION }}
       - name: Install Dart Sass
-        run: sudo snap install dart-sass
+        run: |
+          if [ "${{ steps.cache-dart-sass.outputs.cache-hit }}" != 'true' ]; then
+            wget -O ${{ runner.temp }}/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz \
+            && tar -xzf ${{ runner.temp }}/dart-sass.tar.gz -C ${{ runner.temp }}
+          fi
+          echo "${{ runner.temp }}/dart-sass" >> $GITHUB_PATH
       - name: Checkout
         uses: actions/checkout@v4
         with:
