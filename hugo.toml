@@ -21,6 +21,7 @@ theme = 'ananke'
     title = true
 
 [params]
+  maintenance_mode = true
   description = "Personal blog and notes"
   text_color = ""
   author = "Tristan"
