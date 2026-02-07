@@ -19,6 +19,29 @@
         h1 {
             font-size: 5rem;
             font-weight: 200;
+            margin-bottom: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .social-links {
+            margin-top: 1rem;
+        }
+        .social-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 2rem;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        .social-links a:hover {
+            color: #1DA1F2;
+            transform: scale(1.1);
+        }
+        .icon svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
         }
         @media screen and (max-width: 600px) {
             h1 {
@@ -28,7 +51,12 @@
     </style>
 </head>
 <body>
-    <h1>godfrey.nl</h1>
+    <div class="container">
+        <h1>godfrey.nl</h1>
+        <div class="social-links">
+            {{ partial "social/follow.html" . }}
+        </div>
+    </div>
 </body>
 </html>
 {{ else }}
