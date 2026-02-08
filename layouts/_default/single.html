@@ -20,6 +20,7 @@
 {{ end }}
 
 {{ define "main" }}
+  {{ if not .Site.Params.maintenance_mode }}
   {{- $related_content := .RegularPages.Related . -}}
   {{- $needs_aside := or .Params.toc $related_content -}}
   {{ $page := .}}
@@ -87,9 +88,11 @@
     {{- end -}}
 
   </article>
+  {{ end }}
 {{ end }}
 
 {{ define "footer" }}
+  {{ if not .Site.Params.maintenance_mode }}
   <footer class="pv4 ph3 ph5-l mid-gray">
     <div class="tc">
       <a class="f6 dib ph2 link mid-gray hover-black" href="{{ .Site.Home.Permalink }}">
@@ -97,4 +100,5 @@
       </a>
     </div>
   </footer>
+  {{ end }}
 {{ end }}
