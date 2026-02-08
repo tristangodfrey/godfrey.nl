@@ -17,32 +17,42 @@ To run the site locally:
    hugo server -D
    ```
 
+## Customization
+
+### Modifying Colors
+The site's colors are managed via CSS variables in **`assets/css/custom.css`**.
+
+To update the colors, modify the following variables in the `:root` block:
+
+- **`--accent`**: Changes the hover color for the site title and post titles.
+- **`--header-color`**: Changes the default color of the site title and post titles.
+
+Example:
+```css
+:root {
+  --accent: #ff4500;     /* Orange-red hover color */
+  --header-color: #222;  /* Darker gray for titles */
+}
+```
+
+### Testing Changes
+To see your changes instantly, run the development server:
+```bash
+hugo server
+```
+The site will automatically refresh in your browser whenever you save `assets/css/custom.css`.
+
 ## Features
+
+- **Responsive Header**: Dynamic height header with a bouncing scroll indicator.
+- **Smooth Scrolling**: Custom JavaScript for smooth navigation to content.
+- **Maintenance Mode**: Configurable maintenance mode toggle in `hugo.toml`.
+- **Clean List View**: A minimalist list of post titles and dates.
 - **Obsidian Integration**:
-    - Supports Obsidian-style Markdown features:
-        - [x] Task lists
-        - [x] Tables
-        - [x] Footnotes
-        - [x] Strikethrough
-    - For Wikilinks, use the standard Markdown syntax `[Text](Destination)` which Hugo handles natively, or see `layouts/_default/_markup/render-link.html` for custom link handling.
+    - Supports Obsidian-style Markdown features: Task lists, Tables, Footnotes, and Strikethrough.
+    - Wikilink support (using standard Markdown syntax).
+    - Source posts in `content/Blog/Posts` are automatically mounted for processing.
 
-## List view
-
-The list view shows a short version of each post,
-It displays only: title, date, and the first paragraph of the post. (text until the first empty line)
-The title and date appear above the first paragraph.
-At the bottom there is a link to the full post.
-
-## Obsidian Integration
-
-It is handled as follows:
-
-The source for posts is in content/Blog/Posts.
-When building, filenames + MD properties are fetched from each file and put in a JSON object.
-This list of objects becomes the metadata for each post.
-Filename becomes the "title" property.
-The first paragraph becomes the "short" property.
-    
 ## Deployment
 
 The site is configured for automatic deployment to **GitHub Pages** via GitHub Actions.
