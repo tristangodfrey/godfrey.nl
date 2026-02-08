@@ -1,14 +1,10 @@
 <div class="mb4">
   <h2 class="f2 fw9 avenir mt0 mb0 lh-title">
-    <a href="{{ .RelPermalink }}" class="dark-gray dim link">
+    <a href="{{ .RelPermalink }}" class="header-color hover-accent link">
       {{ or .Title .File.ContentBaseName | humanize }}
     </a>
   </h2>
   <div class="f6 mid-gray mt0 mb3">
     {{ .Date.Format "January 2, 2006" }}
   </div>
-  <div class="f5 lh-copy nested-links mid-gray">
-    {{ .Summary }}
-  </div>
-  <a href="{{ .RelPermalink }}" class="ba b--moon-gray bg-light-gray br2 mid-gray dib f7 hover-bg-moon-gray link mt2 ph2 pv1">Read more</a>
 </div>

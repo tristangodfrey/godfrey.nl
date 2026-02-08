@@ -3,8 +3,8 @@
     {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
     {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
     <section class="w-100 mw8">
-      {{ range $section }}
-        <div class="w-100 mb4 relative">
+      {{ range $index, $element := $section }}
+        <div {{ if eq $index 0 }}id="first-post"{{ end }} class="w-100 mb4 relative">
           {{ .Render "summary" }}
         </div>
       {{ end }}
