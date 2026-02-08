@@ -18,7 +18,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'hugo server -D',
+    command: 'hugo server -D --config hugo.toml,hugo.testing.toml',
     url: 'http://localhost:1313',
     reuseExistingServer: !process.env.CI,
   },
