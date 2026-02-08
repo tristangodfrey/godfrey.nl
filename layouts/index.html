@@ -1,24 +1,4 @@
-{{ define "header" }}
-  {{ if .Site.Params.maintenance_mode }}
-    <header class="bg-white">
-      <div class="vh-100 flex flex-column justify-center items-center">
-        <div class="tc">
-          <h1 class="f2 f-subheadline-l fw2 dark-gray mb0 lh-title avenir">
-            {{ .Site.Title }}
-          </h1>
-          <div class="mt3" style="min-height: 20px;">
-            <a href="https://twitter.com/_tristangodfrey?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_tristangodfrey</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
-        </div>
-      </div>
-    </header>
-  {{ else }}
-    {{ partial "site-header.html" . }}
-  {{ end }}
-{{ end }}
-
 {{ define "main" }}
-  {{ if not .Site.Params.maintenance_mode }}
   <div class="pa3 pa4-ns w-100 w-70-ns center mid-gray">
     {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "posts") }}
     {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
@@ -30,11 +10,9 @@
       {{ end }}
     </section>
   </div>
-  {{ end }}
 {{ end }}
 
 {{ define "footer" }}
-  {{ if not .Site.Params.maintenance_mode }}
   <footer class="pv4 ph3 ph5-l mid-gray">
     <div class="tc">
       <a class="f6 dib ph2 link mid-gray hover-black" href="{{ .Site.Home.Permalink }}">
@@ -42,5 +20,4 @@
       </a>
     </div>
   </footer>
-  {{ end }}
 {{ end }}
