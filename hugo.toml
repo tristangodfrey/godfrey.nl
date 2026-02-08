@@ -1,6 +1,6 @@
 baseURL = 'https://godfrey.nl/'
 languageCode = 'en-us'
-title = 'godfrey.nl'
+title = '@_tristangodfrey'
 theme = 'ananke'
 
 [markup]
@@ -47,14 +47,15 @@ theme = 'ananke'
   page = ["HTML"]
 
 [params]
-  maintenance_mode = true
-  description = "Personal blog and notes"
+  maintenance_mode = false
+  description = "Musings about software engineering, love, and life."
   text_color = "mid-gray"
   author = "Tristan"
   favicon = ""
   site_logo = ""
   read_more_copy = "Read more"
   body_classes = "avenir bg-near-white"
+  custom_css = ["css/custom.css"]
 
   [params.ananke.social.x-twitter]
     username = "_tristangodfrey"

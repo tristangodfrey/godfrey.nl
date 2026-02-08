@@ -1,14 +1,19 @@
-<header class="bg-white">
-  <div class="vh-25 flex flex-column justify-center items-center">
+<header class="bg-white relative">
+  <div class="{{ if .IsNode }}vh-80{{ else }}vh-25{{ end }} flex flex-column justify-center items-center">
     <div class="tc">
-      <h1 class="f2 f-subheadline-l fw2 dark-gray mb0 lh-title avenir">
-        <a href="{{ .Site.Home.RelPermalink }}" class="link dark-gray">
+      <h1 class="f1 f-headline-l fw2 dark-gray mb0 lh-title avenir">
+        <a href="https://x.com/_tristangodfrey" class="link dark-gray hover-silver">
           {{ .Site.Title }}
         </a>
       </h1>
-      <div class="mt3" style="min-height: 20px;">
-        <a href="https://twitter.com/_tristangodfrey?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_tristangodfrey</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
+      <p class="f2 fw4 gray avenir mt2 mb0">{{ .Site.Params.description }}</p>
     </div>
+    {{ if .IsNode }}
+      <div class="absolute bottom-1 bounce">
+        <svg class="w2 h2 gray" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
+        </svg>
+      </div>
+    {{ end }}
   </div>
 </header>
