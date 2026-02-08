@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" {{- if eq site.Language.LanguageDirection "rtl" }} dir="rtl" {{- end }}>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ if .Site.Params.maintenance_mode }}{{ .Site.Title }}{{ else }}{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="{{ if .Site.Params.maintenance_mode }}{{ .Site.Params.description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}{{ end }}">
+    {{ hugo.Generator }}
+    {{ $production := hugo.IsProduction }}
+    {{ $public := not .Params.private }}
+    {{ if and $production $public (not .Site.Params.maintenance_mode) }}
+      <meta name="robots" content="index, follow">
+    {{ else }}
+      <meta name="robots" content="noindex, nofollow">
+    {{ end }}
+
+    {{ partials.Include "site-style.html" . }}
+    
+    {{ if not .Site.Params.maintenance_mode }}
+      {{ partials.Include "site-scripts.html" . }}
+
+      {{ block "favicon" . }}
+        {{ partials.IncludeCached "site-favicon.html" . }}
+      {{ end }}
+
+      {{ if .OutputFormats.Get "RSS" }}
+      {{ with .OutputFormats.Get "RSS" }}
+        <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+        <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+        {{ end }}
+      {{ end }}
+
+      {{ if .Params.canonicalUrl }}
+        <link rel="canonical" href="{{ .Params.canonicalUrl }}">
+      {{ else }}
+        <link rel="canonical" href="{{ .Permalink }}">
+      {{ end }}
+
+      {{ partial "opengraph.html" . -}}
+      {{ partial "schema.html" . -}}
+      {{ partial "twitter_cards.html" . -}}
+
+      {{ if hugo.IsProduction }}
+        {{ partial "google_analytics.html" . }}
+      {{ end }}
+      {{ block "head" . }}{{ partials.Include "head-additions.html" . }}{{ end }}
+    {{ end }}
+  </head>
+
+  {{- $environment := hugo.Environment | default "production" -}}
+  {{- $body_classes := slice "ma0" ($.Param "body_classes" | default "avenir bg-near-white") $environment -}}
+  
+  {{ if .Site.Params.maintenance_mode }}
+    <body class="{{ delimit $body_classes " " }}">
+      <header class="bg-white relative">
+        <div class="vh-80 flex flex-column justify-center items-center">
+          <div class="tc">
+            <h1 class="f1 f-headline-l fw4 header-color mb0 lh-title avenir">
+              <a href="https://x.com/_tristangodfrey" class="link header-color hover-accent">{{ .Site.Title }}</a>
+            </h1>
+            <p class="f2 fw4 gray avenir mt2 mb0">{{ .Site.Params.description }}</p>
+          </div>
+          <div class="absolute bottom-1 bounce">
+            <svg class="w2 h2 gray" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+      </header>
+    </body>
+  {{ else }}
+    {{- $body_classes = $body_classes | append (printf "is-%s" .Kind) -}}
+    {{- if .IsPage -}}
+      {{- $body_classes = $body_classes | append "is-page" -}}
+      {{- with .File -}}
+        {{- $body_classes = $body_classes | append (printf "page-%s" .ContentBaseName) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if .IsSection -}}{{- $body_classes = $body_classes | append "is-section" -}}{{- end -}}
+
+    <body class="{{ delimit $body_classes " " }}">
+      {{ block "header" . }}{{ partial "site-header.html" . }}{{ end }}
+      <main class="pb7" role="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ block "footer" . }}{{ partials.IncludeCached "site-footer.html" . }}{{ end }}
+    </body>
+  {{ end }}
+</html>

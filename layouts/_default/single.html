@@ -1,3 +1,7 @@
+{{ define "header" }}
+  {{ partial "site-header.html" . }}
+{{ end }}
+
 {{ define "main" }}
   {{- $related_content := .RegularPages.Related . -}}
   {{- $needs_aside := or .Params.toc $related_content -}}

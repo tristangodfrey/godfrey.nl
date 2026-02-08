@@ -1,5 +1,5 @@
 <header class="bg-white relative">
-  <div class="{{ if .IsNode }}vh-80{{ else }}vh-25{{ end }} flex flex-column justify-center items-center">
+  <div class="vh-80 flex flex-column justify-center items-center">
     <div class="tc">
       <h1 class="f1 f-headline-l fw4 header-color mb0 lh-title avenir">
         <a href="https://x.com/_tristangodfrey" class="link header-color hover-accent">
@@ -8,12 +8,10 @@
       </h1>
       <p class="f2 fw4 gray avenir mt2 mb0">{{ .Site.Params.description }}</p>
     </div>
-    {{ if .IsNode }}
-      <a href="#first-post" class="absolute bottom-1 bounce pointer">
-        <svg class="w2 h2 gray" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
-        </svg>
-      </a>
-    {{ end }}
+    <a href="#first-post" class="absolute bottom-0 left-0 right-0 flex justify-center items-end pb3 pointer" style="height: 20vh;">
+      <svg class="w2 h2 gray bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7m14-8l-7 7-7-7"></path>
+      </svg>
+    </a>
   </div>
 </header>
