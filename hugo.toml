@@ -47,7 +47,7 @@ theme = 'ananke'
   page = ["HTML"]
 
 [params]
-  maintenance_mode = false
+  maintenance_mode = true
   description = "Musings about software engineering, love, and life."
   text_color = "mid-gray"
   author = "Tristan"
